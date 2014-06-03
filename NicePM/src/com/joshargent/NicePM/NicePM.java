@@ -51,6 +51,7 @@ public class NicePM extends JavaPlugin implements Listener {
 				else sender.sendMessage(ChatColor.RED + "You specified too few arguements. Try /tell <to> <message>");
 			}
 			else sender.sendMessage(ChatColor.RED + "You need to be a player to use that command!");
+			return true;
 		}
 		if(cmd.getName().equalsIgnoreCase("reply") || cmd.getName().equalsIgnoreCase("r"))
 		{
@@ -67,6 +68,7 @@ public class NicePM extends JavaPlugin implements Listener {
 				else sender.sendMessage(ChatColor.RED + "You specified too few arguements. Try /reply <message>");
 			}
 			else sender.sendMessage(ChatColor.RED + "You need to be a player to use that command!");
+			return true;
 		}
 		return false;
 	}

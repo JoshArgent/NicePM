@@ -6,6 +6,7 @@ import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,39 +46,40 @@ public class MessageHandler {
 	
 	public void sendMessage(Player from, Player to, String message) throws PlayerNotOnlineException, SelfMessageException
 	{
+		if(from == null || to == null) throw new PlayerNotOnlineException();
 		if(from.isOnline() && to.isOnline())
 		{
 			if(from != to)
 			{
 				String messageTo = formatTo;
-				if(messageTo.contains("%m"))
-				{
-					messageTo.replace("%m", message);
-				}
 				if(messageTo.contains("%f"))
 				{
-					messageTo.replace("%f", from.getName());
+					messageTo = messageTo.replace("%f", from.getName());
 				}
 				if(messageTo.contains("%t"))
 				{
-					messageTo.replace("%t", to.getName());
+					messageTo = messageTo.replace("%t", to.getName());
 				}
-				from.sendMessage(messageTo);
+				if(messageTo.contains("%m"))
+				{
+					messageTo = messageTo.replace("%m", message);
+				}
+				from.sendMessage(ChatColor.translateAlternateColorCodes('&', messageTo));
 				
 				String messageFrom = formatFrom;
-				if(messageFrom.contains("%m"))
-				{
-					messageFrom.replace("%m", message);
-				}
 				if(messageFrom.contains("%f"))
 				{
-					messageFrom.replace("%f", from.getName());
+					messageFrom = messageFrom.replace("%f", from.getName());
 				}
 				if(messageFrom.contains("%t"))
 				{
-					messageFrom.replace("%t", to.getName());
+					messageFrom = messageFrom.replace("%t", to.getName());
 				}
-				to.sendMessage(messageFrom);
+				if(messageFrom.contains("%m"))
+				{
+					messageFrom = messageFrom.replace("%m", message);
+				}
+				to.sendMessage(ChatColor.translateAlternateColorCodes('&', messageFrom));
 				
 				if(logMessages)
 				{
