@@ -10,10 +10,3 @@ commands:
     description: Reply to a private message
     usage: /<command> <message>
     aliases: [r]
-permissions:
-    givefly.admin:
-        description: Allows you to give flying time to players
-        default: op
-    givefly.excempt:
-        description: Stops players from been allowed to fly, even if they have time available
-        default: op
