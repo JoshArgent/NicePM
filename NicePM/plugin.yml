@@ -1,0 +1,19 @@
+name: NicePM
+main: com.joshargent.NicePM.NicePM
+version: 1.0.0
+commands:
+  tell:
+    description: Sends a private message to a player
+    usage: /<command> <player> <message>
+    aliases: [msg]
+  reply:
+    description: Reply to a private message
+    usage: /<command> <message>
+    aliases: [r]
+permissions:
+    givefly.admin:
+        description: Allows you to give flying time to players
+        default: op
+    givefly.excempt:
+        description: Stops players from been allowed to fly, even if they have time available
+        default: op

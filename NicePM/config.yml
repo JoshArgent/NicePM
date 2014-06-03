@@ -1,0 +1,22 @@
+# ------------------------
+#   NicePM - Josh Argent
+#    www.joshargent.com
+# ------------------------
+#
+#
+# The private message format
+# Supports colour codes (eg. &1 &a - see: http://minecraft.gamepedia.com/Formatting_codes)
+# %f = player from    %t = player to   %m = message
+message-to: '8To &f%t&8: &d%m'
+message-from: '&f%f&8: &d%m'
+#
+#
+# Allow the use of @ and @@ as an alias to /tell and /reply
+chat-aliases: true
+#
+#
+# Log private messages to console?
+log-messages: true
+#
+#
+# End config file
